@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6591b133-ae71-4068-8280-5889abacf4f7" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1UEvZe6F4YQlKnbyQ7AqyBaH2Nw" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/application/stream" />
+      <recent name="$PROJECT_DIR$/application/server" />
+      <recent name="$PROJECT_DIR$/application/controller" />
+      <recent name="$PROJECT_DIR$/mcs" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.UDPClientTest6001">
+    <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="self_MCS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="StreamTest" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="self_MCS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/StreamTest.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TCPClientTest5001" type="PythonConfigurationType" factoryName="Python">
+      <module name="self_MCS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TCPClientTest.py" />
+      <option name="PARAMETERS" value="&quot;5001&quot; &quot;192.168.22.11&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TCPClientTest5002" type="PythonConfigurationType" factoryName="Python">
+      <module name="self_MCS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TCPClientTest.py" />
+      <option name="PARAMETERS" value="&quot;5002&quot; &quot;192.168.30.10&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TCPClientTest5003" type="PythonConfigurationType" factoryName="Python">
+      <module name="self_MCS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TCPClientTest.py" />
+      <option name="PARAMETERS" value="&quot;5003&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UDPClientTest6001" type="PythonConfigurationType" factoryName="Python">
+      <module name="self_MCS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UDPClientTest.py" />
+      <option name="PARAMETERS" value="&quot;6001&quot; &quot;192.168.22.11&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.StreamTest" />
+      <item itemvalue="Python.TCPClientTest5001" />
+      <item itemvalue="Python.TCPClientTest5002" />
+      <item itemvalue="Python.TCPClientTest5003" />
+      <item itemvalue="Python.UDPClientTest6001" />
+      <item itemvalue="Python.Main" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6591b133-ae71-4068-8280-5889abacf4f7" name="Default Changelist" comment="" />
+      <created>1574934625939</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574934625939</updated>
+      <workItem from="1574934633590" duration="3548000" />
+      <workItem from="1574938884662" duration="14781000" />
+      <workItem from="1574961393009" duration="2080000" />
+      <workItem from="1574963888816" duration="5577000" />
+      <workItem from="1575024087359" duration="9000" />
+      <workItem from="1575024148657" duration="13000" />
+      <workItem from="1575024359383" duration="254000" />
+      <workItem from="1575041896031" duration="53000" />
+      <workItem from="1575041967820" duration="95000" />
+      <workItem from="1575042072815" duration="446000" />
+      <workItem from="1575545728785" duration="584000" />
+      <workItem from="1575546334273" duration="61000" />
+      <workItem from="1575546416389" duration="86000" />
+      <workItem from="1575546610328" duration="98000" />
+      <workItem from="1575547061125" duration="1150000" />
+      <workItem from="1575548519255" duration="4209000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575555141365">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1575555141365" />
+    <state x="660" y="410" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575552974151">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="660" y="410" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1200@0.0.1920.1200" timestamp="1575552974151" />
+    <state width="1878" height="213" key="GridCell.Tab.0.bottom" timestamp="1575556727605">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="3158" height="342" key="GridCell.Tab.0.bottom/-1920.0.1920.1200/0.0.3200.1800@0.0.3200.1800" timestamp="1575548033389" />
+    <state width="1878" height="213" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1575556727605" />
+    <state width="1358" height="270" key="GridCell.Tab.0.bottom/0.23.1920.1110@0.23.1920.1110" timestamp="1575024626503" />
+    <state width="1878" height="213" key="GridCell.Tab.0.center" timestamp="1575556727604">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="3158" height="342" key="GridCell.Tab.0.center/-1920.0.1920.1200/0.0.3200.1800@0.0.3200.1800" timestamp="1575548033385" />
+    <state width="1878" height="213" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1575556727604" />
+    <state width="1358" height="270" key="GridCell.Tab.0.center/0.23.1920.1110@0.23.1920.1110" timestamp="1575024626503" />
+    <state width="1878" height="213" key="GridCell.Tab.0.left" timestamp="1575556727604">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="3158" height="342" key="GridCell.Tab.0.left/-1920.0.1920.1200/0.0.3200.1800@0.0.3200.1800" timestamp="1575548033384" />
+    <state width="1878" height="213" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1575556727604" />
+    <state width="1358" height="270" key="GridCell.Tab.0.left/0.23.1920.1110@0.23.1920.1110" timestamp="1575024626502" />
+    <state width="1878" height="213" key="GridCell.Tab.0.right" timestamp="1575556727605">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="3158" height="342" key="GridCell.Tab.0.right/-1920.0.1920.1200/0.0.3200.1800@0.0.3200.1800" timestamp="1575548033387" />
+    <state width="1878" height="213" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1575556727605" />
+    <state width="1358" height="270" key="GridCell.Tab.0.right/0.23.1920.1110@0.23.1920.1110" timestamp="1575024626503" />
+    <state x="461" y="210" key="SettingsEditor" timestamp="1575042062923">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="461" y="210" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1575042062923" />
+    <state x="461" y="217" key="SettingsEditor/0.23.1920.1110@0.23.1920.1110" timestamp="1575024399618" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/self_MCS$TCPClientTest5002.coverage" NAME="TCPClientTest5002 Coverage Results" MODIFIED="1575554397553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/self_Tester$TCPClientTest5002.coverage" NAME="TCPClientTest5002 Coverage Results" MODIFIED="1574969008245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/self_Tester$Stream.coverage" NAME="StreamTest Coverage Results" MODIFIED="1574957544998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/self_MCS$Main.coverage" NAME="Main Coverage Results" MODIFIED="1575555612404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/self_Tester$Main.coverage" NAME="Main Coverage Results" MODIFIED="1574969541700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/self_Tester$TCPClientTest5001.coverage" NAME="TCPClientTest5001 Coverage Results" MODIFIED="1574969552334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/self_MCS$UDPClientTest6001.coverage" NAME="UDPClientTest6001 Coverage Results" MODIFIED="1575555622216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/self_Tester$TCPClientTest5003.coverage" NAME="TCPClientTest5003 Coverage Results" MODIFIED="1574969019941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/self_Tester$StreamTest.coverage" NAME="StreamTest Coverage Results" MODIFIED="1574969508754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/self_MCS$TCPClientTest5001.coverage" NAME="TCPClientTest5001 Coverage Results" MODIFIED="1575554735574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/self_MCS$StreamTest.coverage" NAME="StreamTest Coverage Results" MODIFIED="1575554895733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
