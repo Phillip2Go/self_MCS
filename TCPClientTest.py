@@ -25,7 +25,7 @@ if __name__ == '__main__':
     recv_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     recv_socket.bind((TCP_IP, TCP_PORT))
     recv_socket.listen(10)
-    print("Receive Socket created for TCP_IP:", TCP_IP)
+    print("Receive Socket created for TCP_PORT:", TCP_PORT)
 
     connection, address = recv_socket.accept()
     print("(Stream) - Receive Socket accepted.")
@@ -50,5 +50,5 @@ if __name__ == '__main__':
 
         frame = pickle.loads(frame_data, fix_imports=True, encoding="bytes")
         frame = cv2.imdecode(frame, cv2.IMREAD_COLOR)
-        cv2.imshow('ImageWindow', frame)
+        cv2.imshow("TCP Client:" + sys.argv[2], frame)
         cv2.waitKey(1)

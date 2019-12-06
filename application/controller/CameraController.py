@@ -5,8 +5,6 @@ from application.stream.RootStream import RootStream
 from application.stream.ClientStream import ClientStream
 
 import resources.settings
-resources.settings.rootRet = False
-resources.settings.rootFrame = None
 
 
 class CameraController(Thread):
@@ -20,7 +18,7 @@ class CameraController(Thread):
         self.rootStreamPath = 'rtsp://' + ip + ':554/MediaInput/h264/stream_1'
         self.rootStream = RootStream(src=self.rootStreamPath).start()
         print("RootStream connected to Cam(ip):", ip)
-        resources.settings.rootRet = self.rootStream.ret    # Set global ret in settings.py class
+        resources.settings.rootRetDict[self.cameraIp] = self.rootStream.ret    # Set global ret in settings.py class
         self.clientStreams = []
         time.sleep(1)
 
@@ -30,6 +28,7 @@ class CameraController(Thread):
         """
         cs = Thread(target=ClientStream, args=(settings, clientAddress))
         cs.start()
+        # cs = ClientStream(settings, clientAddress)
         self.clientStreams.append(cs)
         return True
 

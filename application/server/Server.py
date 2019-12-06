@@ -67,17 +67,18 @@ class Server(Thread):
         self.recvSocket.bind(self.server_address)
         self.recvSocket.listen(1)
         while True:
-            print("Waiting for a connection...\n")
+            print("\nWaiting for a connection...\n")
             connection, client_address = self.recvSocket.accept()
             try:
                 print("Connection to client:", client_address)
                 while True:
                     data = connection.recv(128)
-                    print('Received data: {!r}'.format(data))
+                    print('Received data from client: {!r}'.format(data))
                     if data:
                         self.handleRequest(data, client_address)
                     else:
-                        print("No data from:", client_address)
+                        print("No more data from:", client_address)
+                        print("TCP server communication socket closed.\nStart streaming. ")
                         break
             finally:
                 connection.close()

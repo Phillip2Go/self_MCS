@@ -1,4 +1,5 @@
 import cv2
+import time
 from threading import Thread
 
 
@@ -8,7 +9,8 @@ class RootStream:
     """
     def __init__(self, src=0):
         # Initialize the stream from the camera via cv2
-        self.stream = cv2.VideoCapture(src)
+        self.src = src
+        self.stream = cv2.VideoCapture(self.src)
         # Read the first frame from the camera stream
         (self.ret, self.frame) = self.stream.read()
         # Initialize the var used to indificate if the thread should be stopped
@@ -31,6 +33,13 @@ class RootStream:
                 return
             # else, read next ret/frame from the stream
             (self.ret, self.frame) = self.stream.read()
+            # if self.ret is False, the RootStream trys to reconnect the CameraStream
+            if not self.ret:
+                print("RootStream connection lost, trys to reconnect..")
+                st = time.time()
+                cap = cv2.VideoCapture(self.src)
+                print("Time needed to reconnect: ", time.time() - st)
+                continue
 
     def read(self):
         """

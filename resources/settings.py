@@ -1,4 +1,4 @@
-global rootRet
-global rootFrame
+global rootRetDict
 global rootFrameDict
+rootRetDict = {}
 rootFrameDict = {}
