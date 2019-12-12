@@ -16,7 +16,7 @@ class Server(Thread):
         super(Server, self).__init__()
         self.csv_path = csv_path
         self.recvSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.server_address = ('localhost', 5500)
+        self.server_address = ('192.168.21.240', 5500)
         self.csv_data = []
         self.cameraControllers = []
 
