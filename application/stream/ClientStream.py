@@ -25,7 +25,7 @@ class ClientStream(Thread):
         # Create a UDP Socket
         self.clientSocketUDP = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-        # Image compression function. Default value for compression: 85
+        # Image compression function. Default value for compression: 70
         self.encode_param = [int(cv2.IMWRITE_EXR_TYPE_HALF), self.compressionRate]
         """
         # Trys to connect Stream and Device Socket

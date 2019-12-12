@@ -7,7 +7,7 @@ import cv2
 UDP_IP = '127.0.0.1'
 UDP_PORT = int(sys.argv[1])
 SERVER_ADDRESS = ('localhost', 5500)
-SETTINGS = str(UDP_PORT) + "," + sys.argv[2] + ",mjpeg,15,1280,720"
+SETTINGS = str(UDP_PORT) + "," + sys.argv[2] + ",mjpeg,15,640,360"
 
 
 if __name__ == '__main__':
