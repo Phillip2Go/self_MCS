@@ -299,7 +299,10 @@
     <state x="424" y="262" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1576153207802" />
     <state x="660" y="410" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576153207802" />
     <state x="660" y="410" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1200@0.0.1920.1200" timestamp="1576153207802" />
-    <state x="543" y="202" key="CommitChangelistDialog2" timestamp="1576153207802" />
+    <state x="543" y="162" key="CommitChangelistDialog2" timestamp="1576159645398">
+      <screen x="0" y="23" width="1680" height="970" />
+    </state>
+    <state x="543" y="162" key="CommitChangelistDialog2/-590.-1417.2560.1417/0.23.1680.970@-590.-1417.2560.1417" timestamp="1576159645398" />
     <state x="543" y="202" key="CommitChangelistDialog2/0.0.1920.1200@0.0.1920.1200" timestamp="1576153207802" />
     <state width="1878" height="213" key="GridCell.Tab.0.bottom" timestamp="1576153207802" />
     <state width="3158" height="342" key="GridCell.Tab.0.bottom/-1920.0.1920.1200/0.0.3200.1800@0.0.3200.1800" timestamp="1576153207802" />
@@ -335,6 +338,10 @@
     <state x="461" y="210" key="SettingsEditor/-590.-1057.1920.1057/0.0.1680.1050@0.0.1680.1050" timestamp="1576154345908" />
     <state x="461" y="210" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1576153207802" />
     <state x="461" y="217" key="SettingsEditor/0.23.1920.1110@0.23.1920.1110" timestamp="1576153207802" />
+    <state x="652" y="-997" key="Vcs.Push.Dialog.v2" timestamp="1576159684607">
+      <screen x="-590" y="-1417" width="2560" height="1417" />
+    </state>
+    <state x="652" y="-997" key="Vcs.Push.Dialog.v2/-590.-1417.2560.1417/0.23.1680.970@-590.-1417.2560.1417" timestamp="1576159684607" />
     <state x="743" y="524" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576153237941">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
