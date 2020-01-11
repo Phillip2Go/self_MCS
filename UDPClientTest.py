@@ -4,9 +4,9 @@ import struct
 import pickle
 import cv2
 
-UDP_IP = '127.0.0.1'
+UDP_IP = 'localhost'
 UDP_PORT = int(sys.argv[1])
-SERVER_ADDRESS = ('localhost', 5500)
+SERVER_ADDRESS = ('localhost', 5501)
 SETTINGS = str(UDP_PORT) + "," + sys.argv[2] + ",mjpeg,15,640,360"
 
 
@@ -25,8 +25,6 @@ if __name__ == '__main__':
     udpRecv_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     udpRecv_socket.bind((UDP_IP, UDP_PORT))
     print("Receive Socket created for UDP_PORT:", UDP_PORT)
-
-    data = b""
     payload_size = struct.calcsize(">L")
     print("payload_size: {}".format(payload_size))
 

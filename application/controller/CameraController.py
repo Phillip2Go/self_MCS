@@ -1,5 +1,5 @@
 import time
-
+import socket
 from threading import Thread
 from application.stream.RootStream import RootStream
 from application.stream.ClientStream import ClientStream
@@ -14,22 +14,42 @@ class CameraController(Thread):
     """
     def __init__(self, ip):
         super().__init__()
-        self.cameraIp = ip
-        self.rootStreamPath = 'rtsp://' + ip + ':554/MediaInput/h264/stream_1'
-        self.rootStream = RootStream(src=self.rootStreamPath).start()
-        print("RootStream connected to Cam(ip):", ip)
-        resources.settings.rootRetDict[self.cameraIp] = self.rootStream.ret    # Set global ret in settings.py class
-        self.clientStreams = []
+        self.cameraip = ip
+        self.CAMERAPORT = 554
+        self.BUFFERSIZE = 1024
+        self.rootstreampath = 'rtsp://' + ip + ':554/MediaInput/h264/stream_1'
+
+        self.rootstream = RootStream(src=self.rootstreampath).start()
+        if self.rootstream.ret:
+            print("Successfully retrieving Stream from " + ip)
+        else:
+            print("Couldn't get Stream from " + ip)
+
+        self.camerasocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.camerasocket.connect((self.cameraip, self.CAMERAPORT))
+
+        resources.settings.rootRetDict[self.cameraip] = self.rootstream.ret    # Set global ret in settings.py class
+        self.clientstreams = []
         time.sleep(1)
 
-    def createClientStream(self, settings, clientAddress):
+    def sendToCamera(self, x):
+        """
+        Sends a String via TCP to the RTSP Port of the Camera
+        (Used for RTSP-SETUP)
+        """
+        self.camerasocket.send(x)
+        data = self.camerasocket.recv(self.BUFFERSIZE)
+        return data
+
+
+    def createClientStream(self, settings, clientaddress):
         """
         Create a threaded ClientStream and append the stream to the self.clientStream List
         """
-        cs = Thread(target=ClientStream, args=(settings, clientAddress))
+        cs = Thread(target=ClientStream, args=(settings, clientaddress))
         cs.start()
         # cs = ClientStream(settings, clientAddress)
-        self.clientStreams.append(cs)
+        self.clientstreams.append(cs)
         return True
 
     def run(self):
@@ -37,4 +57,4 @@ class CameraController(Thread):
         Set the actual RootStream frame to resources.settings.rootRet -> Global
         """
         while True:
-            resources.settings.rootFrameDict[self.cameraIp] = self.rootStream.read()
+            resources.settings.rootFrameDict[self.cameraip] = self.rootstream.read()

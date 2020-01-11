@@ -51,7 +51,6 @@ class ClientStream(Thread):
             return False
     """
 
-
     def sendToDevice(self):
         """
         Sends (converted) Frame from RootStream via Socket to the Socket on the device
