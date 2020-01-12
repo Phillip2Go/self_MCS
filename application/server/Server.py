@@ -75,9 +75,7 @@ class Server(Thread):
                 while True:
                     data = connection.recv(BUFFERSIZE)
                     if data:
-                        print('### CLIENT: ###\n' + data.decode() + "\n")
                         answer = self.handleRequest(data, client_address)
-                        print('### RESPONSE: ###\n' + answer.decode() + "\n")
                         connection.send(answer)
 
                     else:
@@ -94,7 +92,7 @@ class Server(Thread):
         """
         new = data.decode()
         method = new.split()[0]
-
+        print("+++ Method " + method + " triggered +++")
         if method == "DESCRIBE" or "OPTIONS":
             new = new.replace("rtsp://"+self.server_address[0]+":"+str(self.server_address[1])+"/",
                               "rtsp://" + self.cameraControllers[0].cameraip + ":"
@@ -108,8 +106,11 @@ class Server(Thread):
         elif method == "PLAY":
             self.cameraControllers[0].clientstreams[0].start()
 
+
+        print('### CLIENT: ###\n' + new + "\n")
         new = new.encode()
         response = self.cameraControllers[0].sendToCamera(new)
+        print('### RESPONSE: ###\n' + response.decode() + "\n")
         # ca = clientaddress[0], int(data.decode().split(",")[0])
         # settings = data.decode().split(",")[1:]
         # print("Frames sending to Client:", ca)
