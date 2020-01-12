@@ -19,15 +19,15 @@ class Server(Thread):
         self.csv_path = csv_path
         self.server_address = ('192.168.0.248', 5502)
         self.csv_data = []
-        self.cameraControllers = []
+        self.cameracontrollers = []
         self.clients = []
 
         # Starting up all methods:
-        self.readCsv()
-        self.initCameras()
-        self.startCameras()
+        self.readcsv()
+        self.initcameras()
+        self.startcameras()
 
-    def readCsv(self):
+    def readcsv(self):
         """
         Reading the CSV file
         """
@@ -41,24 +41,24 @@ class Server(Thread):
                     self.csv_data.append(row)
                     line_count += 1
 
-    def initCameras(self):
+    def initcameras(self):
         """
         Initialize for every camera a CameraController with connect to RootStream
         """
         for cam in self.csv_data:
             if len(cam) is 1:
                 ip = cam[0]
-                self.cameraControllers.append(CameraController(ip))
+                self.cameracontrollers.append(CameraController(ip))
 
             elif len(cam) is 3:
                 ip, username, password = cam
                 pass
 
-    def startCameras(self):
+    def startcameras(self):
         """
         Start up all Cameras and connect to RootStream
         """
-        for cam in self.cameraControllers:
+        for cam in self.cameracontrollers:
             cam.start()
 
     def run(self):
@@ -66,13 +66,17 @@ class Server(Thread):
         Creating a receive Socket to listen to the client.
         """
         print("### SERVER STARTED" + str(self.server_address) + " ###")
-        client = Client(self.server_address, self.cameraControllers[0])
+        client = Client(self.server_address, self.cameracontrollers[0])
         print("\n### SERVER IS WAITING WITH EMPTY CLIENTSOCKET ###\n")
         client.start()
         print("\n### CLIENT STARTED ###\n")
         while True:
             if client.connected:
                 self.clients.append(client)
-                client = Client(self.server_address, self.cameraControllers[0])
+                client = Client(self.server_address, self.cameracontrollers[0])
+                print("\n### SERVER IS WAITING WITH EMPTY CLIENTSOCKET ###\n")
+                client.start()
+                print("\n### CLIENT STARTED ###\n")
+
 
 

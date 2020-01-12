@@ -15,8 +15,8 @@ class CameraController(Thread):
     def __init__(self, ip):
         super().__init__()
         self.cameraip = ip
-        self.CAMERAPORT = 554
-        self.BUFFERSIZE = 1024
+        self.cameraport = 554
+        self.buffersize = 1024
         self.playreceived = False
         self.rootstreampath = 'rtsp://' + ip + ':554/MediaInput/h264/stream_1'
 
@@ -33,12 +33,12 @@ class CameraController(Thread):
         self.clientstreams = []
         time.sleep(1)
 
-    def sendToCamera(self, x):
+    def sendToCamera(self, message):
         """
         Sends a String via TCP to the RTSP Port of the Camera
         (Used for RTSP-SETUP)
         """
-        self.camerasocket.send(x)
+        self.camerasocket.send(message)
         data = self.camerasocket.recv(self.BUFFERSIZE)
         return data
 

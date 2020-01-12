@@ -25,16 +25,16 @@ class ClientStream(Thread):
         super().__init__()
         print("ClientStream address:", clientaddress)
         self.camip = camip
-        self.clientAddress = clientaddress
-        self.clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.clientaddress = clientaddress
+        self.clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def run(self):
         """
         Sends (converted) Frame from RootStream via Socket to the Socket on the device
         """
-        print("Connecting to: " + str(self.clientAddress))
-        self.clientSocket.connect(self.clientAddress)
+        print("Connecting to: " + str(self.clientaddress))
+        self.clientsocket.connect(self.clientaddress)
         while True:
             if resources.settings.rootRetDict[self.camip]:
                 clientFrame = resources.settings.rootFrameDict[self.camip]
-                self.clientSocket.sendall(clientFrame)
+                self.clientsocket.sendall(clientFrame)
