@@ -94,8 +94,8 @@ class Server(Thread):
         method = new.split()[0]
         print("+++ Method " + method + " triggered +++")
         if method == "DESCRIBE" or "OPTIONS":
-            new = new.replace("rtsp://"+self.server_address[0]+":"+str(self.server_address[1])+"/",
-                              "rtsp://" + self.cameraControllers[0].cameraip + ":"
+            new = new.replace(self.server_address[0]+":"+str(self.server_address[1]),
+                              self.cameraControllers[0].cameraip + ":"
                               + str(self.cameraControllers[0].CAMERAPORT) + "/MediaInput/h264/stream_1")
 
         elif method == "SETUP":
