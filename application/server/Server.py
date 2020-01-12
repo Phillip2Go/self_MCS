@@ -74,8 +74,8 @@ class Server(Thread):
                 print("### CLIENT CONNECTED" + str(client_address) + " ###")
                 while True:
                     data = connection.recv(BUFFERSIZE)
-                    print('### CLIENT: ###\n' + data.decode() + "\n")
                     if data:
+                        print('### CLIENT: ###\n' + data.decode() + "\n")
                         answer = self.handleRequest(data, client_address)
                         print('### RESPONSE: ###\n' + answer.decode() + "\n")
                         connection.send(answer)
@@ -89,14 +89,26 @@ class Server(Thread):
 
     def handleRequest(self, data, clientaddress):
         """
-        Passthrough all the RTSP-Requests until Client sends Port via SETUP Method
+        Passthrough all the RTSP-Requests until Client sends DESCRIBE, SETUP  and finally PLAY Method
         Then create a Clientstream, which will handle sending the video
         """
         new = data.decode()
-        new = new.replace("rtsp://192.168.0.248:5501/", "rtsp://192.168.0.11:554/MediaInput/h264/stream_1")
-        new = new.encode()
-        print("### DATA: ###\n", new)
+        method = new.split()[0]
 
+        if method == "DESCRIBE" or "OPTIONS":
+            new = new.replace("rtsp://"+self.server_address[0]+":"+str(self.server_address[1])+"/",
+                              "rtsp://" + self.cameraControllers[0].cameraip + ":"
+                              + str(self.cameraControllers[0].CAMERAPORT) + "/MediaInput/h264/stream_1")
+
+        elif method == "SETUP":
+            ip = clientaddress[0]
+            # port = new.split()[9].split(";")[2].split("=")[1].split("-")[0]
+            self.cameraControllers[0].createClientStream((ip, None))
+
+        elif method == "PLAY":
+            self.cameraControllers[0].clientstreams[0].start()
+
+        new = new.encode()
         response = self.cameraControllers[0].sendToCamera(new)
         # ca = clientaddress[0], int(data.decode().split(",")[0])
         # settings = data.decode().split(",")[1:]

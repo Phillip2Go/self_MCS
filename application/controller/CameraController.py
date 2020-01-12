@@ -17,6 +17,7 @@ class CameraController(Thread):
         self.cameraip = ip
         self.CAMERAPORT = 554
         self.BUFFERSIZE = 1024
+        self.playreceived = False
         self.rootstreampath = 'rtsp://' + ip + ':554/MediaInput/h264/stream_1'
 
         self.rootstream = RootStream(src=self.rootstreampath).start()
@@ -42,13 +43,11 @@ class CameraController(Thread):
         return data
 
 
-    def createClientStream(self, settings, clientaddress):
+    def createClientStream(self, clientaddress):
         """
         Create a threaded ClientStream and append the stream to the self.clientStream List
         """
-        cs = Thread(target=ClientStream, args=(settings, clientaddress))
-        cs.start()
-        # cs = ClientStream(settings, clientAddress)
+        cs = ClientStream(self.cameraip, clientaddress)
         self.clientstreams.append(cs)
         return True
 
