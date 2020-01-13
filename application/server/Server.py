@@ -1,9 +1,8 @@
 import csv
+import time
 from threading import Thread
-
 from application.controller.CameraController import CameraController
-from application.server.Client import Client
-import sys
+from gstreamer import RtspStreamer
 
 DEFAULT_SPECS = ["h264", "25", "1920", "1080"]
 BUFFERSIZE = 1024
@@ -17,7 +16,6 @@ class Server(Thread):
     def __init__(self, csv_path):
         super(Server, self).__init__()
         self.csv_path = csv_path
-        self.server_address = (sys.argv[1], 5502)
         self.csv_data = []
         self.cameracontrollers = []
         self.clients = []
@@ -63,19 +61,28 @@ class Server(Thread):
 
     def run(self):
         """
-        Creating a receive Socket to listen to the client.
+        Creates a RTSP-Socket for every Client
         """
-        print("### SERVER STARTED" + str(self.server_address) + " ###")
-        client = Client(self.server_address, self.cameracontrollers[0])
-        print("\n### SERVER IS WAITING WITH EMPTY CLIENTSOCKET ###\n")
-        client.start()
-        print("\n### CLIENT STARTED ###\n")
-        while True:
-            if client.receivedplay:
-                client.tcpsocket.close()
-                # client = Client(self.server_address, self.cameracontrollers[0])
-                # client.start()
-                # print("\n### NEW CLIENT STARTED ###\n")
+        rtspsocket1 = RtspStreamer("open1", 8554, "rtsp://192.168.0.11:554/mediainput/h264/stream_1")
+        time.sleep(0.5)
+        rtspsocket1.start()
+        """
+        rtspsocket2 = RtspStreamer("open1", 8555, "rtsp://192.168.0.11:554/mediainput/h264/stream_1")
+        rtspsocket3 = RtspStreamer("open1", 8556, "rtsp://192.168.0.11:554/mediainput/h264/stream_1")
+        rtspsocket4 = RtspStreamer("open1", 8557, "rtsp://192.168.0.11:554/mediainput/h264/stream_1")
+        rtspsocket5 = RtspStreamer("open1", 8558, "rtsp://192.168.0.11:554/mediainput/h264/stream_1")
+        rtspsocket6 = RtspStreamer("open1", 8559, "rtsp://192.168.0.11:554/mediainput/h264/stream_1")
 
-
-
+        
+        time.sleep(0.5)
+        rtspsocket2.start()
+        time.sleep(0.5)
+        rtspsocket3.start()
+        time.sleep(0.5)
+        rtspsocket4.start()
+        time.sleep(0.5)
+        rtspsocket5.start()
+        time.sleep(0.5)
+        rtspsocket6.start()
+        time.sleep(0.5)
+        """

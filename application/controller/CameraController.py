@@ -20,15 +20,13 @@ class CameraController(Thread):
 
         self.rootstream = RootStream(src=self.rootstreampath).start()
         if self.rootstream.ret:
-            print("Successfully retrieving Stream from " + ip)
+            print("--- Successfully connected to Camera({}) ---\n".format(ip))
         else:
-            print("Couldn't get Stream from " + ip)
+            print("--- Can't connect to Camera({}) ---\n".format(ip))
 
         self.camerasocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.camerasocket.connect((self.cameraip, self.cameraport))
-
         resources.settings.rootRetDict[self.cameraip] = self.rootstream.ret    # Set global ret in settings.py class
-        time.sleep(1)
 
     def sendToCamera(self, message):
         """
