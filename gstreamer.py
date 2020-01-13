@@ -8,9 +8,10 @@ import resources.settings
 
 gi.require_version('Gst', '1.0')
 gi.require_version('GstRtspServer', '1.0')
-from gi.repository import Gst, GstRtspServer, GObject, GLib
+from gi.repository import Gst, GstRtspServer, GLib
 
 
+# noinspection PyUnresolvedReferences,PyUnresolvedReferences,PyUnresolvedReferences,PyUnresolvedReferences
 class SensorFactory(GstRtspServer.RTSPMediaFactory):
     def __init__(self, url=None, **properties):
         super(SensorFactory, self).__init__(**properties)
@@ -27,8 +28,8 @@ class SensorFactory(GstRtspServer.RTSPMediaFactory):
                              '! x264enc speed-preset=ultrafast tune=zerolatency ' \
                              '! rtph264pay config-interval=0 name=pay0 pt=62'.format(self.fps)
 
-    def on_need_data(self, src, lenght):
-    # if self.cap.isOpened():
+    def on_need_data(self, src):
+        # if self.cap.isOpened():
         frame = resources.settings.rootFrameDict["192.168.0.11"]
         ret = True
         # ret, frame = self.cap.read()
@@ -43,8 +44,8 @@ class SensorFactory(GstRtspServer.RTSPMediaFactory):
             self.number_frames += 1
             retval = src.emit('push-buffer', buf)
             # print('pushed buffer, frame {}, duration {} ns, durations {} s'.format(self.number_frames,
-                                                                                   # self.duration,
-                                                                                   # self.duration / Gst.SECOND))
+            # self.duration,
+            # self.duration / Gst.SECOND))
             if retval != Gst.FlowReturn.OK:
                 print(retval)
 
@@ -65,22 +66,20 @@ class GstServer(GstRtspServer.RTSPServer):
         # self.set_backlog(2)
         print("--- BACKLOG: {} ---".format(self.get_backlog()))
         self.set_service(str(port))
-        self.get_mount_points().add_factory("/"+name, self.factory)
+        self.get_mount_points().add_factory("/" + name, self.factory)
         self.attach(None)
 
 
+# noinspection PyUnresolvedReferences
 class RtspStreamer(Thread):
-     def __init__(self, name, port, url):
-         super().__init__()
-         Gst.init(None)
-         self.name = name
-         self.port = port
-         self.url = url
+    def __init__(self, name, port, url):
+        super().__init__()
+        Gst.init(None)
+        self.name = name
+        self.port = port
+        self.url = url
 
-     def run(self):
-         server = GstServer(self.name, self.port, self.url)
-         print("--- Streamer started on /{} port {} ---\n".format(self.name, self.port))
-         loop = GLib.MainLoop()
-         loop.run()
-
-
+    def run(self):
+        print("--- Streamer started on /{} port {} ---\n".format(self.name, self.port))
+        loop = GLib.MainLoop()
+        loop.run()

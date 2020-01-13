@@ -1,6 +1,6 @@
-import cv2
-import time
 from threading import Thread
+
+import cv2
 
 
 class RootStream:

@@ -50,7 +50,7 @@ class Server(Thread):
 
             elif len(cam) is 3:
                 ip, username, password = cam
-                pass
+                self.cameracontrollers.append(CameraController(ip))
 
     def startcameras(self):
         """

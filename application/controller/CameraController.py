@@ -1,8 +1,8 @@
-import time
 import socket
 from threading import Thread
-from application.stream.RootStream import RootStream
+
 import resources.settings
+from application.stream.RootStream import RootStream
 
 
 class CameraController(Thread):
