@@ -1,9 +1,9 @@
 import csv
-import socket
 from threading import Thread
 
 from application.controller.CameraController import CameraController
 from application.server.Client import Client
+import sys
 
 DEFAULT_SPECS = ["h264", "25", "1920", "1080"]
 BUFFERSIZE = 1024
@@ -17,7 +17,7 @@ class Server(Thread):
     def __init__(self, csv_path):
         super(Server, self).__init__()
         self.csv_path = csv_path
-        self.server_address = ('192.168.0.248', 5502)
+        self.server_address = (sys.argv[1], 5502)
         self.csv_data = []
         self.cameracontrollers = []
         self.clients = []
@@ -71,12 +71,11 @@ class Server(Thread):
         client.start()
         print("\n### CLIENT STARTED ###\n")
         while True:
-            if client.connected:
-                self.clients.append(client)
-                client = Client(self.server_address, self.cameracontrollers[0])
-                print("\n### SERVER IS WAITING WITH EMPTY CLIENTSOCKET ###\n")
-                client.start()
-                print("\n### CLIENT STARTED ###\n")
+            if client.receivedplay:
+                client.tcpsocket.close()
+                # client = Client(self.server_address, self.cameracontrollers[0])
+                # client.start()
+                # print("\n### NEW CLIENT STARTED ###\n")
 
 
 

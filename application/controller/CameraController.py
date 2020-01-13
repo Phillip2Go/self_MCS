@@ -2,8 +2,6 @@ import time
 import socket
 from threading import Thread
 from application.stream.RootStream import RootStream
-from application.stream.ClientStream import ClientStream
-
 import resources.settings
 
 
@@ -27,10 +25,9 @@ class CameraController(Thread):
             print("Couldn't get Stream from " + ip)
 
         self.camerasocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.camerasocket.connect((self.cameraip, self.CAMERAPORT))
+        self.camerasocket.connect((self.cameraip, self.cameraport))
 
         resources.settings.rootRetDict[self.cameraip] = self.rootstream.ret    # Set global ret in settings.py class
-        self.clientstreams = []
         time.sleep(1)
 
     def sendToCamera(self, message):
@@ -38,18 +35,9 @@ class CameraController(Thread):
         Sends a String via TCP to the RTSP Port of the Camera
         (Used for RTSP-SETUP)
         """
-        self.camerasocket.send(message)
-        data = self.camerasocket.recv(self.BUFFERSIZE)
-        return data
-
-
-    def createClientStream(self, clientaddress):
-        """
-        Create a threaded ClientStream and append the stream to the self.clientStream List
-        """
-        cs = ClientStream(self.cameraip, clientaddress)
-        self.clientstreams.append(cs)
-        return True
+        self.camerasocket.send(message.encode())
+        data = self.camerasocket.recv(self.buffersize)
+        return data.decode()
 
     def run(self):
         """
