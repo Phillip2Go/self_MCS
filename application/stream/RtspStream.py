@@ -13,12 +13,9 @@ from gi.repository import Gst, GstRtspServer, GLib
 
 # noinspection PyUnresolvedReferences,PyUnresolvedReferences,PyUnresolvedReferences,PyUnresolvedReferences
 class SensorFactory(GstRtspServer.RTSPMediaFactory):
-    def __init__(self, url=None, **properties):
+    def __init__(self, dictkey=None, **properties):
         super(SensorFactory, self).__init__(**properties)
-        if url:
-            self.cap = cv2.VideoCapture(url)
-        else:
-            self.cap = cv2.VideoCapture(0)
+        self.source = dictkey if dictkey else 0
         self.number_frames = 0
         self.fps = 25
         self.duration = 1 / self.fps * Gst.SECOND  # duration of a frame in nanoseconds
@@ -29,11 +26,8 @@ class SensorFactory(GstRtspServer.RTSPMediaFactory):
                              '! rtph264pay config-interval=0 name=pay0 pt=62'.format(self.fps)
 
     def on_need_data(self, src):
-        # if self.cap.isOpened():
-        frame = resources.settings.rootFrameDict["192.168.0.11"]
-        ret = True
-        # ret, frame = self.cap.read()
-        if ret:
+        frame = resources.settings.rootFrameDict[self.dictkey]
+        if resources.settings.rootFrameRet[self.dictkey]:
             data = frame.tostring()
             buf = Gst.Buffer.new_allocate(None, len(data), None)
             buf.fill(0, data)
@@ -59,11 +53,11 @@ class SensorFactory(GstRtspServer.RTSPMediaFactory):
 
 
 class GstServer(GstRtspServer.RTSPServer):
-    def __init__(self, name="stream", port=8554, url=None, **properties):
+    def __init__(self, camerakey, name="stream", port=8554, **properties):
+
         super(GstServer, self).__init__(**properties)
-        self.factory = SensorFactory(url=url)
+        self.factory = SensorFactory(camerakey=camerakey)
         self.factory.set_shared(True)
-        # self.set_backlog(2)
         print("--- BACKLOG: {} ---".format(self.get_backlog()))
         self.set_service(str(port))
         self.get_mount_points().add_factory("/" + name, self.factory)
@@ -72,14 +66,15 @@ class GstServer(GstRtspServer.RTSPServer):
 
 # noinspection PyUnresolvedReferences
 class RtspStreamer(Thread):
-    def __init__(self, name, port, url):
+    def __init__(self, camerakey, name, port):
         super().__init__()
         Gst.init(None)
         self.name = name
         self.port = port
-        self.url = url
+        self.camerakey = camerakey
 
     def run(self):
+        server = GstServer(self.camerakey, self.name, self.port)
         print("--- Streamer started on /{} port {} ---\n".format(self.name, self.port))
         loop = GLib.MainLoop()
         loop.run()

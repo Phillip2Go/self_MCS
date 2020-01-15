@@ -2,7 +2,7 @@ import csv
 import time
 from threading import Thread
 from application.controller.CameraController import CameraController
-from gstreamer import RtspStreamer
+from application.stream.RtspStream import RtspStreamer
 
 DEFAULT_SPECS = ["h264", "25", "1920", "1080"]
 BUFFERSIZE = 1024
@@ -43,6 +43,7 @@ class Server(Thread):
         """
         Initialize for every camera a CameraController with connect to RootStream
         """
+        self.cameracontrollers.append(CameraController())
         for cam in self.csv_data:
             if len(cam) is 1:
                 ip = cam[0]
@@ -63,7 +64,7 @@ class Server(Thread):
         """
         Creates a RTSP-Socket for every Client
         """
-        rtspsocket1 = RtspStreamer("open1", 8554, "rtsp://192.168.0.11:554/mediainput/h264/stream_1")
+        rtspsocket1 = RtspStreamer(None, "open", 554)
         time.sleep(0.5)
         rtspsocket1.start()
         """
