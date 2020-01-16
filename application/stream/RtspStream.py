@@ -13,9 +13,9 @@ from gi.repository import Gst, GstRtspServer, GLib
 
 # noinspection PyUnresolvedReferences,PyUnresolvedReferences,PyUnresolvedReferences,PyUnresolvedReferences
 class SensorFactory(GstRtspServer.RTSPMediaFactory):
-    def __init__(self, dictkey=None, **properties):
+    def __init__(self, camerakey, **properties):
         super(SensorFactory, self).__init__(**properties)
-        self.source = dictkey if dictkey else 0
+        self.source = camerakey if camerakey else 0
         self.number_frames = 0
         self.fps = 25
         self.duration = 1 / self.fps * Gst.SECOND  # duration of a frame in nanoseconds
@@ -26,8 +26,8 @@ class SensorFactory(GstRtspServer.RTSPMediaFactory):
                              '! rtph264pay config-interval=0 name=pay0 pt=62'.format(self.fps)
 
     def on_need_data(self, src):
-        frame = resources.settings.rootFrameDict[self.dictkey]
-        if resources.settings.rootFrameRet[self.dictkey]:
+        frame = resources.settings.rootFrameDict[self.camerakey]
+        if resources.settings.rootFrameRet[self.source]:
             data = frame.tostring()
             buf = Gst.Buffer.new_allocate(None, len(data), None)
             buf.fill(0, data)
@@ -53,7 +53,7 @@ class SensorFactory(GstRtspServer.RTSPMediaFactory):
 
 
 class GstServer(GstRtspServer.RTSPServer):
-    def __init__(self, camerakey, name="stream", port=8554, **properties):
+    def __init__(self, camerakey=None, name="stream", port=8554, **properties):
 
         super(GstServer, self).__init__(**properties)
         self.factory = SensorFactory(camerakey=camerakey)

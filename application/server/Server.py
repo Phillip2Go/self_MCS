@@ -43,7 +43,7 @@ class Server(Thread):
         """
         Initialize for every camera a CameraController with connect to RootStream
         """
-        self.cameracontrollers.append(CameraController())
+        # self.cameracontrollers.append(CameraController())
         for cam in self.csv_data:
             if len(cam) is 1:
                 ip = cam[0]
@@ -64,7 +64,7 @@ class Server(Thread):
         """
         Creates a RTSP-Socket for every Client
         """
-        rtspsocket1 = RtspStreamer(None, "open", 554)
+        rtspsocket1 = RtspStreamer("192.168.21.17", "open", 554)
         time.sleep(0.5)
         rtspsocket1.start()
         """
