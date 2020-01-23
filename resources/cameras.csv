@@ -1,4 +1,4 @@
-ip,username,password
+protocol,username:password@ip,port1:streamname1:width1xheight1,port2:streamname2:width2xheight2
 192.168.0.11
 
 

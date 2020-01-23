@@ -22,6 +22,7 @@ class Server(Thread):
         self.csv_data = []
         self.cameracontrollers = []
         self.rtspstreams = []
+
         self.readcsv()
         self.initcameras()
         self.startcameras()
@@ -57,7 +58,6 @@ class Server(Thread):
         """ Start all CameraController-Threads """
         for cam in self.cameracontrollers:
             cam.start()
-
 
     def initrtspstreams(self, settings):
         for settingstuple in settings:

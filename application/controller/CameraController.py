@@ -21,8 +21,8 @@ class CameraController(Thread):
             # self.playreceived = False
 
             # --- CHANGE RTSP <-> HTTP ---
-            self.rootstreampath = 'rtsp://' + ip + ':554/MediaInput/h264/stream_1'
-            # self.rootstreampath = 'http://' + ip + '/cgi-bin/mjpeg?resolution=1920x1080&framerate=25&quality=1'
+            # self.rootstreampath = 'rtsp://' + ip + ':554/MediaInput/h264/stream_1'
+            self.rootstreampath = 'http://' + ip + '/cgi-bin/mjpeg?resolution=1920x1080&framerate=25&quality=1'
 
             self.camerasocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.camerasocket.connect((self.cameraip, self.cameraport))

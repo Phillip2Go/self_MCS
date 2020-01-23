@@ -42,6 +42,8 @@ class RootStream(Thread):
         self.ret, self.frame = self.stream.read()
         if self.ret:
             print("--- Successfully connected to Camera({}) ---".format(self.src))
+        else:
+            self.reconnectstream()
 
     def reconnectstream(self):
         """
